@@ -149,5 +149,13 @@ namespace Tests
 
 			Assert.AreEqual(expected, FooBarQix.DoFooBarQix(input));
 		}
+		[Test]
+		public void Error_Negative()
+		{
+			var input = -7;
+			var expected = ":(";
+
+			Assert.AreEqual(expected, FooBarQix.DoFooBarQix(input));
+		}
 	}
 }

@@ -43,6 +43,20 @@ namespace Tests
 		}
 
 		[Test]
+		public void c_Test()
+		{
+			var input = 'c';
+			var expected =
+				"  a\r\n" +
+				" b b\r\n" +
+				"c   c\r\n" +
+				" b b\r\n" +
+				"  a";
+
+			Assert.AreEqual(expected, Diamond.Create(input));
+		}
+
+		[Test]
 		public void E_Test()
 		{
 			var input = 'E';

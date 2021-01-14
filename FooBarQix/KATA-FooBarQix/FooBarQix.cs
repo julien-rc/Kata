@@ -5,15 +5,18 @@ namespace KATA_FooBarQix
 {
 	public static class FooBarQix
 	{
+		private const string Foo = "Foo";
+		private const string Bar = "Bar";
+		private const string Qix = "Qix";
+
 		public static string DoFullFooBarQix()
 		{
 			StringBuilder sb = new StringBuilder();
 
 			for (int i = 1; i <= 100; i++)
 			{
-				sb.AppendLine(DoFooBarQix(i).ToString());
+				sb.AppendLine(DoFooBarQix(i));
 			}
-
 			return sb.ToString();
 		}
 
@@ -26,36 +29,36 @@ namespace KATA_FooBarQix
 
 			string result = string.Empty;
 			string nbString = nb.ToString();
+			char[] charArray = nbString.ToCharArray();
 			StringBuilder sb = new StringBuilder();
-			var charArray = nbString.ToCharArray();
 
 			if (nb % 3 == 0)
 			{
-				sb.Append("Foo");
+				sb.Append(Foo);
 			}
 			if (nb % 5 == 0)
 			{
-				sb.Append("Bar");
+				sb.Append(Bar);
 			}
 			if (nb % 7 == 0)
 			{
-				sb.Append("Qix");
+				sb.Append(Qix);
 			}
 
 
 			foreach (var c in charArray)
 			{
-				if (c == '3')
+				switch (c)
 				{
-					sb.Append("Foo");
-				}
-				else if (c == '5')
-				{
-					sb.Append("Bar");
-				}
-				else if (c == '7')
-				{
-					sb.Append("Qix");
+					case '3':
+						sb.Append(Foo);
+						break;
+					case '5':
+						sb.Append(Bar);
+						break;
+					case '7':
+						sb.Append(Qix);
+						break;
 				}
 			}
 
@@ -82,15 +85,15 @@ namespace KATA_FooBarQix
 
 			if (nb % 3 == 0)
 			{
-				sb.Append("Foo");
+				sb.Append(Foo);
 			}
 			if (nb % 5 == 0)
 			{
-				sb.Append("Bar");
+				sb.Append(Bar);
 			}
 			if (nb % 7 == 0)
 			{
-				sb.Append("Qix");
+				sb.Append(Qix);
 			}
 
 			result = sb.ToString();
@@ -100,9 +103,9 @@ namespace KATA_FooBarQix
 			var nbFive = nbString.Count(x => (x == '5'));
 			var nbSeven = nbString.Count(x => (x == '7'));
 
-			result += string.Concat(Enumerable.Repeat("Foo", nbThree));
-			result += string.Concat(Enumerable.Repeat("Bar", nbFive));
-			result += string.Concat(Enumerable.Repeat("Qix", nbSeven));
+			result += string.Concat(Enumerable.Repeat(Foo, nbThree));
+			result += string.Concat(Enumerable.Repeat(Bar, nbFive));
+			result += string.Concat(Enumerable.Repeat(Qix, nbSeven));
 
 			if (result == string.Empty)
 			{

@@ -38,20 +38,16 @@ namespace KATA_Roman
 
 			for (int i = 0; i < SymbolValue.Count; i++)
 			{
-				int t = (int)SymbolValue.Keys.ElementAt(i);
-				//Console.WriteLine("------------ Trying with " + t);
-				while (nb >= t)
+				//Console.WriteLine("------------ Trying with " + (int)SymbolValue.Keys.ElementAt(i));
+				while (nb >= (int)SymbolValue.Keys.ElementAt(i))
 				{
 					//Console.WriteLine("nb --> " + nb);
-					nb -= t;
+					nb -= (int)SymbolValue.Keys.ElementAt(i);
 					//Console.WriteLine("new nb --> " + nb);
-					var newChar = SymbolValue.Values.ElementAt(i);
-					//Console.WriteLine("------------ Adding " + new_char);
-
-					sb.Append(newChar);
+					//Console.WriteLine("------------ Adding " + SymbolValue.Values.ElementAt(i));
+					sb.Append(SymbolValue.Values.ElementAt(i));
 				}
 			}
-
 			return sb.ToString();
 		}
 
